@@ -72,7 +72,7 @@ def da():
 
     trnc = 1
     Utrunc, strunc, Wtrunc = svds(W, k=trnc)
-    X = Utrunc.dot(np.diag(np.sqrt(strunc)))
+    X = Utrunc.dot(np.diag(np.sqrt(strunc))) # Why sqrt is applied? s is the squared root of the eigenvalues  correction:  X = Utrunc.dot(np.diag(strunc))
     np.savetxt("./validation/matrixVpreclocal"+str(trnc)+".txt", X)
 
     V = X.copy()
